@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&family=Merienda:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-1{
+  font-family: 'Merienda', cursive;
+}
+
+body{
+  font-family: 'Karla', sans-serif;
+}
+.bg-banner{
+  background: linear-gradient(90deg,rgba(48, 20, 36, 0.866) 4%,rgba(48, 20, 36, 0.866) 80%,rgba(6, 9, 19, .66)), url("https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center/cover no-repeat;
+  /* https://images.pexels.com/photos/3342739/pexels-photo-3342739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 */
+  /* https://images.pexels.com/photos/3183198/pexels-photo-3183198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 */
+  /* https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 */
+}
+.bg-overlay{
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg,rgba(23, 1, 17, 0.84) 4%,rgba(33, 3, 24, 0.92) 80%,rgb(26, 22, 22));
+    z-index: 0;
+}
+
