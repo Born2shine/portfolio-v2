@@ -1,5 +1,5 @@
 import { MdOutlineClose, MdPermContactCalendar } from "react-icons/md";
-import { BiCodeCurly } from "react-icons/bi";
+import { BiCodeCurly, BiChevronRight } from "react-icons/bi";
 import {
   AiOutlineHome,
   AiOutlineInfoCircle,
@@ -17,5 +17,6 @@ export {
   MdPermContactCalendar,
   BsPersonCheck,
   BsCodeSlash,
-  BsPencilSquare
+  BsPencilSquare,
+  BiChevronRight
 };

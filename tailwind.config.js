@@ -10,6 +10,7 @@ export default {
         'isPrimary': '#ed2c49',
         'isPrimary5': '#F1416C0D',
         'isSecondary': '#3F4254',
+        'isGray': '#837f7f',
       },
     },
   },

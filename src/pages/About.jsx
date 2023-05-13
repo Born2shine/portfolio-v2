@@ -4,7 +4,7 @@ import * as ICONS from "../assets/icons"
 import * as IMAGES from "../assets"
 import { NavLink } from 'react-router-dom';
 import { AboutMe } from '../utils/data';
-import SingleSkill from '../components/SingleSkill';
+import { SingleSkill, ContentContainer } from '../components';
 
 const About = () => {
   const [activeLink, setActiveLink] = useState("Home");
@@ -16,15 +16,15 @@ const About = () => {
             <NavButtonLinks activeLink={activeLink} setActiveLink={setActiveLink}/>
           </div>
     </Header>
-    <section className='w-[90%] h-[400px] mx-auto overflow-y-scroll bg-[#ffffffff] px-5 py-10 mt-6 md:w-[88%] md:h-[450px] md:mt-1 md:pt-12'>
-      <h1 className='font-1 font-extrabold text-4xl leading-12 text-isPrimary md:text-5xl md:w-[90%] md:mx-auto'>Meet Friday Odoh</h1>
-      <div className='flex flex-col items-center place-content-center mt-4 md:flex-row md:items-start md:mt-8 md:w-[80%] md:mx-auto'>
-        <div className='md:w-[40%]'>
-          <img className='w-44 h-44 object-cover rounded-full' src={IMAGES.TOM} alt="" />
-        </div>
+    <ContentContainer title="Meet Friday Odoh" subtitle="">
+
+    <section className='flex flex-col items-center place-content-center mt-4 md:flex-row md:items-start md:mt-8 md:w-[80%] md:mx-auto'>
+        {/* <div className='md:w-34'> */}
+          <img className='w-52 h-52 object-cover rounded-full' src={IMAGES.TOM} alt="" />
+        {/* </div> */}
         <div className='mt-10 md:mt-0 md:ml-10'>
           <div>
-            <div className='w-[70%]'>
+            <div className='lg:w-[70%]'>
               <p className='text-isSecondary font-extrabold'>Who am I?</p>
               <ul className='mt-2 ml-3 flex flex-col gap-3'>
                 {
@@ -35,7 +35,7 @@ const About = () => {
               </ul>
             </div>
 
-            <div className='mt-12 md:w-[85%]'>
+            <div className='mt-12 lg:w-[80%]'>
               <p className='text-isSecondary font-extrabold'>Who I do?</p>
               <div className="mt-4 ml-2 flex flex-col items-center gap-6 md:grid md:grid-cols-3">
                 <SingleSkill icon={<ICONS.BsCodeSlash/>}>
@@ -49,14 +49,14 @@ const About = () => {
                 </SingleSkill>
               </div>
             </div>
-            <p className='mt-8 my-6'>
+            <p className='mt-8 my-6 lg:w-[80%]'>
             Welcome to my creative corner! Here, you'll find a showcase of my frontend development journey. I hope you enjoy the ride!
             </p>
               {/* <p>Welcome to my creative corner! Here, you'll find a showcase of my frontend development journey. I hope you enjoy the ride!</p> */}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ContentContainer>
   </div>
   )
 }

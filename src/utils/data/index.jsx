@@ -110,3 +110,128 @@ export const AboutMe = [
     text: "Currently working at"
   },
 ]
+
+export const WorkExperience = [
+  {
+    duration: 'Febuary 2023 - Present', 
+    title: 'FRONT-END ENGINEER',
+    company: 'Dowkaa intelligent solutions.', 
+    tasks: [
+      'Building a logistics platform for easy, fast, reliable and secure same-day freight across Africa.'
+    ]
+  },
+  {
+    duration: 'July 2022 - January 2023', 
+    title: 'FRONT-END DEVELOPER',
+    company: 'Standard Life Organization.', 
+    tasks: [
+      'Worked with a team to build a Helpdesk System and a CBS for Micro Insurance',
+      'Created and translated mockup designs to high-quality codes.',
+      'Fixing and improving existing application performance.',
+    ]
+  },
+  {
+    duration: 'August 2021 - December 2021', 
+    title: 'FRONT-END DEVELOPER',
+    company: 'Toonifique Company.', 
+    tasks: [
+      'Collaborated with a team of developers to define, design, and built a Logistic System',
+      'Created reusable components and pages of mockup designs.',
+      'Integrated features and consumed API.',
+      'Worked closely with the design team to reproduce designs.',
+    ]
+  },
+  {
+    duration: 'February 2020 — April 2020', 
+    title: 'FRONT-END DEVELOPER',
+    company: 'Systematrixx.', 
+    tasks: [
+      'Evaluated existing Web applications and performed updates and modifications',
+      'Ensured consistent page appearance/behavior across multiple browsers (IE6+, FF, Chrome, Safari).',
+    ]
+  },
+]
+
+export const EducationInformation = [
+  {
+    duration: 'Mar 2021 - Jun 2021', 
+    title: 'FRONTEND DEVELOPER (INTERN)',
+    school: 'Redi School of Digital Integration, Munich.', 
+    description: 'This program taught concept of programming and how to build web applications using React Library',
+    summaries: [
+      'Functional Programming.',
+      'React Components.',
+      'Interaction between components.',
+      'Lifecycle methods.',
+      'Mixing components with/without state.',
+      'React Style, PropTypes, Forms.',
+    ]
+  },
+  {
+    duration: 'Feb 2014 - Sep 2019', 
+    title: 'BSC. IN COMPUTER SCIENCE',
+    school: 'University of Benin, Nigeria.', 
+    description: 'Graduated with Second Class Honours.',
+    summaries: [
+      'Relevant Coursework: Fundamentals of Software Engineering, Introduction to Computing, Information Technology: Design, Policy and Application, Computer Architecture, Algorithms and Data Structures, Operating Systems, Systems Programming, Programming in Machine and Assembly Languages, Web Technology & Applications, Systems Analysis and Design, Microprocessors & Microcomputers, Database Management, Computer Networks, Data Communications and Networks',
+    ]
+  },
+]
+
+export const TechStacks = [
+  {
+    name: 'Javascript',
+    imgLink: 'https://i.ibb.co/kK5Qy8m/javascript-081325c6.png'
+  },
+  {
+    name: 'React',
+    imgLink: 'https://i.ibb.co/28BhRtJ/react-e7574af2.png'
+  },
+  {
+    name: 'HTML',
+    imgLink: 'https://i.ibb.co/R4t4Y3z/html5-c1bb84e0.png'
+  },
+  {
+    name: 'CSS',
+    imgLink: 'https://i.ibb.co/bsnmQhS/css3-3ec32022.png'
+  },
+  {
+    name: 'SASS',
+    imgLink: 'https://i.ibb.co/CwRcCJv/sass-icon.png'
+  },
+  {
+    name: 'Bootstrap',
+    imgLink: 'https://i.ibb.co/0rCbsdK/bootstrap-4-icon.png'
+  },
+  {
+    name: 'Tailwind',
+    imgLink: 'https://i.ibb.co/xzx3XzX/tailwind-css-icon.png'
+  },
+  {
+    name: 'Figma',
+    imgLink: 'https://i.ibb.co/LRVnyzD/figma-icon.png'
+  },
+  {
+    name: 'Git',
+    imgLink: 'https://i.ibb.co/7yNfF9p/git-43d387b7.png'
+  },
+]
+
+export const MyPortfolio = [
+  {
+    name: 'Design Sprint Master',
+    img_url: 'https://i.ibb.co/JrDRMDX/dezyit-ui-design.png',
+    slug: 'design-sprint-master',
+    site_url: 'https://roadx-dashboard.netlify.app/',
+    code_url: 'https://github.com/Born2shine/roadx-dashboard',
+    description: "Converted mockup design to website using react library. It's responsive on different viewports."
+  },
+  {
+    name: 'RoadX Admin',
+    img_url: 'https://i.ibb.co/cy64QCt/bluecube-design.png',
+    slug: 'roadx-admin',
+    site_url: 'https://roadx-dashboard.netlify.app/',
+    code_url: 'https://github.com/Born2shine/roadx-dashboard',
+    description: "Converted mockup design to website using react library. It's responsive on different viewports."
+  },
+]

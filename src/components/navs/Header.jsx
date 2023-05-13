@@ -50,7 +50,7 @@ const Header = ({children}) => {
             <span className="w-4 h-[3px] bg-white content-none block mt-1"></span>
           </div>
               <nav
-                className={`fixed flex flex-col items-center justify-center right-0 top-0 h-screen bg-[#3F4254] w-${
+                className={`fixed flex flex-col items-center justify-center right-0 top-0 h-screen bg-[#3F4254] z-10 w-${
                   isHoverSideNav ? "40" : "32"
                 } p-5 text-white cursor-pointer ${showSidebar ? "" : "hidden"} md:hidden`}
                 onMouseOver={() => setHoverSideNav(true)}

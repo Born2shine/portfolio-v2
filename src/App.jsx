@@ -1,6 +1,6 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 import { Suspense } from "react";
-import { Home, About } from "./pages";
+import { Home, About, Resume, Portfolio, SinglePortfolio } from "./pages";
 
 const App = () => {
   return (
@@ -16,8 +16,9 @@ const App = () => {
           <Routes>
             <Route index path="/" element={<Home />} />
             <Route index path="/about" element={<About />} />
-            <Route index path="/resume" element={<Home />} />
-            <Route index path="/portfolio" element={<Home />} />
+            <Route index path="/resume" element={<Resume />} />
+            <Route index path="/portfolio" element={<Portfolio />} />
+            <Route index path="/portfolio/:id" element={<SinglePortfolio />} />
             <Route index path="/contact" element={<Home />} />
           </Routes>
         </main>
