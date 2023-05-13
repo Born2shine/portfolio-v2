@@ -72,23 +72,33 @@ export const InstagramIcon = () => (
 export const SocialLinks = [
   {
     id: 1,
-    icon: <GitHubIcon/>
+    name: "GitHub",
+    icon: <GitHubIcon/>,
+    link: "https://github.com/Born2shine"
   },
   {
     id: 2,
-    icon: <LinkdinIcon/>
+    name: "Linkedin",
+    icon: <LinkdinIcon/>,
+    link: "https://www.linkedin.com/in/friday-odoh-574452131/"
   },
   {
     id: 3,
-    icon: <MailIcon/>
+    name: "Mail",
+    icon: <MailIcon/>,
+    link: "mailto:odohfriday9@gmail.com?body=Hello Friday,"
   },
   {
     id: 4,
-    icon: <Twittericon/>
+    name: "Twitter",
+    icon: <Twittericon/>,
+    link: "https://twitter.com/odoh_thomas"
   },
   {
     id: 5,
-    icon: <InstagramIcon/>
+    name: "Instagram",
+    icon: <InstagramIcon/>,
+    link: 'https://www.instagram.com/i_am_tom33'
   }
 ] 
 

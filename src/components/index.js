@@ -6,6 +6,8 @@ import { default as SingleWorkExperience } from './SingleWorkExperience';
 import { default as ContentContainer } from './ContentContainer';
 import { default as SingleEducationContainer } from './SingleEducationContainer';
 
+import {default as Input} from './form/Input';
+
 
 export {
 	Header,
@@ -14,5 +16,6 @@ export {
 	SingleSkill,
 	SingleWorkExperience,
 	SingleEducationContainer,
-	ContentContainer
+	ContentContainer,
+	Input
 }

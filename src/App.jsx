@@ -1,6 +1,6 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 import { Suspense } from "react";
-import { Home, About, Resume, Portfolio, SinglePortfolio } from "./pages";
+import { Home, About, Resume, Portfolio, SinglePortfolio, Contact } from "./pages";
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
             <Route index path="/resume" element={<Resume />} />
             <Route index path="/portfolio" element={<Portfolio />} />
             <Route index path="/portfolio/:id" element={<SinglePortfolio />} />
-            <Route index path="/contact" element={<Home />} />
+            <Route index path="/contact" element={<Contact />} />
           </Routes>
         </main>
       </Suspense>
