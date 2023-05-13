@@ -20,7 +20,7 @@ const About = () => {
 
     <section className='flex flex-col items-center place-content-center mt-4 md:flex-row md:items-start md:mt-8 md:w-[80%] md:mx-auto'>
         {/* <div className='md:w-34'> */}
-          <img className='w-52 h-52 object-cover rounded-full' src={IMAGES.TOM} alt="" />
+          <img loading='lazy' className='w-52 h-52 object-cover rounded-full' src={IMAGES.TOM} alt="" />
         {/* </div> */}
         <div className='mt-10 md:mt-0 md:ml-10'>
           <div>
