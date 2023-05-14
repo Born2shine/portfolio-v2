@@ -3,6 +3,7 @@ import Typewriter from "typewriter-effect";
 import { Header } from "../components";
 import NavButtonLinks from "../components/navs/NavButtonLinks";
 import { SocialLinks } from './../utils/data';
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   const [activeLink, setActiveLink] = useState("Home");
@@ -32,9 +33,9 @@ const Home = () => {
             <div className="flex gap-x-8">
               {
                 SocialLinks.map((link) => (
-                  <span key={link.id} className="text-[#ffffffff] cursor-pointer">
+                  <NavLink to={link.link} target="_blank" key={link.id} className="text-[#ffffffff] cursor-pointer">
                     {link.icon}
-                  </span>
+                  </NavLink>
                 ))
               }
             </div>

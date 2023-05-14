@@ -93,6 +93,7 @@ const Contact = () => {
                     <NavLink
                       className={`flex gap-1 items-center`}
                       to={link}
+					  target="_blank"
                       key={id}
                     >
                       <span>{icon}</span> <span>{name}</span>{" "}
