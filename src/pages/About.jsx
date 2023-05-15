@@ -36,7 +36,7 @@ const About = () => {
             </div>
 
             <div className='mt-12 lg:w-[80%]'>
-              <p className='text-isSecondary font-extrabold'>Who I do?</p>
+              <p className='text-isSecondary font-extrabold'>What I do?</p>
               <div className="mt-4 ml-2 flex flex-col items-center gap-6 md:grid md:grid-cols-3">
                 <SingleSkill icon={<ICONS.BsCodeSlash/>}>
                   Front-End Web <br /> Development
