@@ -1,19 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ContentContainer, Header, Input, NavButtonLinks } from "../components";
 import { NavLink } from "react-router-dom";
 import { SocialLinks } from "../utils/data";
+import { useFormik } from "formik";
+import { contactSchema } from "../utils/helpers/contactSchema";
+import emailjs from '@emailjs/browser';
+import * as ICONS from '../assets/icons'
 
 const Contact = () => {
   const [activeLink, setActiveLink] = useState("Contact");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const formRef = useRef();
 
-  const getIconColorByName = (name) => {
-	if (name === 'Linkedin') {
-		return '#0072b1'
-	}
-  }
+  const sendEmail = () => {
+    emailjs.sendForm('service_8naxzfq', 'template_0ziprhi', formRef.current, 'rOawyLbzdJCyLyglh')
+      .then((result) => {
+          console.log(result.text);
+		  setIsSuccess(true);
+		  resetForm()
+      }, (error) => {
+          console.log(error.text);
+		  resetForm()
+      });
+	  formRef.current.reset()
+  };
+
+
+  const handleFormSubmit = () => {
+	sendEmail()
+  };
+
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, resetForm } = useFormik({
+    initialValues: {
+      names: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    validationSchema: contactSchema,
+    onSubmit: handleFormSubmit,
+  });
+
+  useEffect(() => {
+	const timer = setTimeout(() => {
+		setIsSuccess(false)
+	}, 8000);
+
+	return () => clearTimeout(timer)
+  },[isSuccess])
 
   return (
     <div className="">
+		<div className={`text-[#ffffff] bg-[#da5165] w-fit p-2 px-4 absolute ${isSuccess ? 'right-3' :'-right-[100%]'} -right-[100%] bottom-3 border-l-2 border-l-white-500 transition-all duration-300`}> <span className="animate-puls">Hey!👋 Thanks for reaching out </span> </div>
       <Header>
         <div className="hidden md:flex md:gap-5">
           <NavButtonLinks
@@ -42,37 +80,86 @@ const Contact = () => {
             </p>
           </aside>
           <aside className="md:w-[75%] lg:w-[55%]">
-            <form action="">
+            <form onSubmit={handleSubmit} ref={formRef}>
               <div className="flex flex-col gap-y-6 md:flex-row md:gap-x-3">
-                <Input type="text" name="name" id="name" placeholder="Names" />
-                <Input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                />
+                <div className="w-full">
+                  <Input
+                    type="text"
+                    name="names"
+                    id="names"
+                    placeholder="Names"
+					touched={touched}
+					handleChange={handleChange}
+					handleBlur={handleBlur}
+					value={values.names}
+					errors={errors}
+                  />
+				  {
+					touched.names && errors?.names &&
+					<span className="text-red-500 text-sm ml-2"> {errors.names} </span>
+				  }
+                </div>
+                <div className="w-full">
+                  <Input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+					touched={touched}
+					handleChange={handleChange}
+					handleBlur={handleBlur}
+					value={values.email}
+					errors={errors}
+                  />
+				  {
+					touched.email && errors?.email &&
+					<span className="text-red-500 text-sm ml-2"> {errors.email} </span>
+				  }
+                </div>
               </div>
               <div className="mt-6">
                 <Input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  placeholder="Subject"
+					type="text"
+					name="subject"
+					id="subject"
+					touched={touched}
+					handleChange={handleChange}
+					handleBlur={handleBlur}
+					value={values.subject}
+					errors={errors}
+                  	placeholder="Subject"
                 />
+				{
+					touched.subject && errors?.subject &&
+					<span className="text-red-500 text-sm ml-2"> {errors.subject} </span>
+				  }
               </div>
               <div className="mt-6">
                 <textarea
-                  name="message"
-                  id="message"
-                  cols="30"
-                  rows="5"
-                  placeholder="Message"
-                  className="borde p-3 px-4 w-full rounded-3xl bg-isSecondary5 focus:outline-none focus:shadow-md"
+					name="message"
+					id="message"
+					touched={touched}
+					onChange={handleChange}
+					onBlur={handleBlur}
+					value={values.message}
+					cols="30"
+					rows="5"
+					placeholder="Message"
+					className={`${touched.message && errors.message && 'border border-red-500'} p-3 px-4 w-full rounded-3xl bg-isSecondary5 focus:outline-none focus:shadow-md`}
                 ></textarea>
+				{
+					touched.message && errors?.message &&
+					<span className="text-red-500 text-sm ml-2"> {errors.message} </span>
+				  }
               </div>
               <div className="flex justify-end">
-                <button className="p-2.5 px-4 mt-4 bg-isPrimary text-[#ffffffff] rounded-full font-bold">
-                  Send Message
+                <button
+                  type="submit"
+				  disabled={isSubmitting ? true : false}
+                  className={`flex items-center gap-1 p-2.5 px-4 mt-4 bg-isPrimary ${isSubmitting && 'bg-[#fb7d8fc9]'} text-[#ffffffff] rounded-full font-bold cursor-pointer`}
+                >
+				 {isSubmitting && <span className="animate-spin"><ICONS.AiOutlineLoading3Quarters/></span>}
+                  <span>Send Message</span>
                 </button>
               </div>
             </form>
@@ -93,7 +180,7 @@ const Contact = () => {
                     <NavLink
                       className={`flex gap-1 items-center`}
                       to={link}
-					  target="_blank"
+                      target="_blank"
                       key={id}
                     >
                       <span>{icon}</span> <span>{name}</span>{" "}

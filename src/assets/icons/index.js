@@ -4,6 +4,7 @@ import {
   AiOutlineHome,
   AiOutlineInfoCircle,
   AiFillContainer,
+  AiOutlineLoading3Quarters
 } from "react-icons/ai";
 import { BsBriefcase, BsPersonCheck, BsCodeSlash, BsPencilSquare } from "react-icons/bs";
 
@@ -12,6 +13,7 @@ export {
   MdOutlineClose,
   AiOutlineHome,
   AiOutlineInfoCircle,
+  AiOutlineLoading3Quarters,
   AiFillContainer,
   BsBriefcase,
   MdPermContactCalendar,
