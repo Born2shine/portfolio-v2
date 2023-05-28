@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import { contactSchema } from "../utils/helpers/contactSchema";
 import emailjs from '@emailjs/browser';
 import * as ICONS from '../assets/icons'
+import { AnimatePresence, motion } from "framer-motion";
 
 const Contact = () => {
   const [activeLink, setActiveLink] = useState("Contact");
@@ -15,7 +16,7 @@ const Contact = () => {
   const sendEmail = () => {
     emailjs.sendForm('service_8naxzfq', 'template_0ziprhi', formRef.current, 'rOawyLbzdJCyLyglh')
       .then((result) => {
-          console.log(result.text);
+          console.log(result.text, 'FORM_DATA: ',formRef.current.value);
 		  setIsSuccess(true);
 		  resetForm()
       }, (error) => {
@@ -44,14 +45,22 @@ const Contact = () => {
   useEffect(() => {
 	const timer = setTimeout(() => {
 		setIsSuccess(false)
-	}, 8000);
+	}, 6000);
 
 	return () => clearTimeout(timer)
   },[isSuccess])
 
   return (
     <div className="">
-		<div className={`text-[#ffffff] bg-[#da5165] w-fit p-2 px-4 absolute ${isSuccess ? 'right-3' :'-right-[100%]'} -right-[100%] bottom-3 border-l-2 border-l-white-500 transition-all duration-300`}> <span className="animate-puls">Hey!👋 Thanks for reaching out </span> </div>
+      <AnimatePresence>
+        {
+          isSuccess && (
+            <motion.div
+            exit={{ x: 1000 }}
+            className={`text-[#ffffff] bg-[#da5165] w-fit p-2 px-4 fixed right-3 bottom-3 border-l-2 border-l-white-500 transition-all duration-300`}> <span className="animate-puls">Hey!👋 Thanks for reaching out </span> </motion.div>
+          )
+        }
+      </AnimatePresence>
       <Header>
         <div className="hidden md:flex md:gap-5">
           <NavButtonLinks
@@ -64,7 +73,11 @@ const Contact = () => {
         title="Get In Touch"
         subtitle="Do you have a project in mind? I'm here to help bring your ideas to life. Let's chat!"
       >
-        <section className="flex flex-col gap-y-4 mt-10 md:flex-row md:gap-x-20 lg:gap-x-40 md:items-start md:mt-8 md:w-[90%] md:mx-auto">
+        <motion.section
+        initial={{ y: '60vh'}}
+        animate={{ y: 0 }}
+        transition={{delay: .2, duration: .7}}
+        className="flex flex-col gap-y-4 mt-10 md:flex-row md:gap-x-20 lg:gap-x-40 md:items-start md:mt-8 md:w-[90%] md:mx-auto">
           <aside>
             <h2 className="font-bold text-isPrimary text-2xl leading-6">
               Let's discuss this!
@@ -164,7 +177,7 @@ const Contact = () => {
               </div>
             </form>
           </aside>
-        </section>
+        </motion.section>
 
         <section className="flex flex-col gap-y-4 mt-10 md:flex-row md:gap-x-20 md:items-start md:my-16 md:w-[90%] md:mx-auto">
           <aside>

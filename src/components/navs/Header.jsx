@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
-import * as ICONS from "../../assets/icons";
+// import { motion } from 'framer-motion';
 import { useCallback, useEffect, useState } from "react";
+import * as ICONS from "../../assets/icons";
 import { SideBarLinks } from "../../utils/data";
 import SideBarLink from "./SideBarLink";
-import NavButtonLinks from "./NavButtonLinks";
+import { NavLink } from 'react-router-dom';
 
 const Header = ({children}) => {
   const [isHoverSideNav, setHoverSideNav] = useState(false);
@@ -36,7 +36,8 @@ const Header = ({children}) => {
     <>
       <header className="relative px-6 py-4 md:px-10 md:py-8">
         <div className="flex justify-between items-center">
-          <NavLink to="/" className="text-white font-1 font-extralight text-4xl tracking-widest cursor-pointer"
+          <NavLink
+              to="/" className="text-white font-1 font-extralight text-4xl tracking-widest cursor-pointer"
           >
             FO
           </NavLink>

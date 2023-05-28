@@ -3,9 +3,14 @@ import { ContentContainer, Header, NavButtonLinks } from "../components";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { MyPortfolio } from "../utils/data";
+import { motion } from 'framer-motion';
+import { useGlobalContext } from "../provider/context";
+import { Skeleton } from "@mui/material";
+import { Blurhash } from "react-blurhash";
 
 const Portfolio = () => {
   const [activeLink, setActiveLink] = useState("Portfolio");
+  const { works, loading } = useGlobalContext()
 
   return (
     <div className="">
@@ -22,10 +27,30 @@ const Portfolio = () => {
         subtitle="Check out some of my works."
       >
         <section className="mt-8 md:mt-8 md:w-[90%] md:mx-auto">
-          <article className="grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-6">
-            {MyPortfolio.map(({name, img_url, slug, site_url}, idx) => (
+          <motion.article
+          initial={{y: '65vw'}}
+          animate={{y: 0}}
+          transition={{delay: .4, duration: 1.2}}
+          className="grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-6">
+            { loading &&
+                [3,4].map((d, idx) => (
+                  <div key={idx} className="mr-4">
+                    {/* <Blurhash
+                      hash="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
+                      width={500}
+                      height={300}
+                      resolutionX={32}
+                      resolutionY={32}
+                      punch={1}
+                    /> */}
+                    <Skeleton animation="pulse" variant="rectangular" width={510} height={500} />
+                  </div>
+                ))
+              }
+            {works.map(({name, img_url, slug, site_url}, idx) => (
               <NavLink key={idx} to={`/portfolio/${slug}`} className="cursor-pointer relative group">
                 <img
+                  loading="lazy"
                   className="inline-block w-full object-cover shadow-lg rounded-sm lg:h-[280px]"
                   src={img_url}
                   alt="Design Sprint Master"
@@ -47,7 +72,7 @@ const Portfolio = () => {
                 </div>
               </NavLink>
             ))}
-          </article>
+          </motion.article>
         </section>
       </ContentContainer>
     </div>

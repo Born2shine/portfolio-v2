@@ -7,7 +7,7 @@ import { default as ContentContainer } from './ContentContainer';
 import { default as SingleEducationContainer } from './SingleEducationContainer';
 
 import {default as Input} from './form/Input';
-
+import { AppProvider } from "../provider/context";
 
 export {
 	Header,
@@ -17,5 +17,6 @@ export {
 	SingleWorkExperience,
 	SingleEducationContainer,
 	ContentContainer,
-	Input
+	Input,
+	AppProvider
 }

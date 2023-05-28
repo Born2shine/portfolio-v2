@@ -102,6 +102,14 @@ export const SocialLinks = [
   }
 ] 
 
+export const SocialLinkIcons = {
+  github: <GitHubIcon/>,
+  linkedin: <LinkdinIcon/>,
+  mail: <MailIcon/>,
+  twitter: <Twittericon/>,
+  instagram: <InstagramIcon/>
+}
+
 export const AboutMe = [
   {
     id: 1,
