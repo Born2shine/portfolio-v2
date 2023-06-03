@@ -76,7 +76,7 @@ const Contact = () => {
         <motion.section
         initial={{ y: '60vh'}}
         animate={{ y: 0 }}
-        transition={{delay: .2, duration: .7}}
+        transition={{delay: .2, duration: .2}}
         className="flex flex-col gap-y-4 mt-10 md:flex-row md:gap-x-20 lg:gap-x-40 md:items-start md:mt-8 md:w-[90%] md:mx-auto">
           <aside>
             <h2 className="font-bold text-isPrimary text-2xl leading-6">

@@ -87,12 +87,13 @@ const SinglePortfolio = () => {
               {
                 !loading && (
                 <div className="flex flex-col items-center gap-4 mt-6 md:flex-row">
-                  <NavLink
+                  {selectedPortfolio?.code_url && <NavLink
                     to={selectedPortfolio?.code_url}
+                    target="_blank"
                     className="bg-isSecondary text-[#ffffffff] p-2.5 px-8 rounded-md"
                   >
                     View on Github
-                  </NavLink>
+                  </NavLink>}
                   <NavLink
                     to={selectedPortfolio?.site_url}
                     target="_blank"

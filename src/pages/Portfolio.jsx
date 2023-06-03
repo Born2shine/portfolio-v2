@@ -35,14 +35,6 @@ const Portfolio = () => {
             { loading &&
                 [3,4].map((d, idx) => (
                   <div key={idx} className="mr-4">
-                    {/* <Blurhash
-                      hash="LEHV6nWB2yk8pyo0adR*.7kCMdnj"
-                      width={500}
-                      height={300}
-                      resolutionX={32}
-                      resolutionY={32}
-                      punch={1}
-                    /> */}
                     <Skeleton animation="pulse" variant="rectangular" width={510} height={500} />
                   </div>
                 ))
