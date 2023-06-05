@@ -33,7 +33,7 @@ const Portfolio = () => {
           transition={{delay: .4, duration: 1.2}}
           className="grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-6">
             { loading &&
-                [3,4].map((d, idx) => (
+                Array.from({length: 4}, (_, i) => i + 1).map((d, idx) => (
                   <div key={idx} className="mr-4">
                     <Skeleton animation="pulse" variant="rectangular" width={510} height={500} />
                   </div>

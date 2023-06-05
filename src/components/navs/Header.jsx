@@ -5,7 +5,7 @@ import { SideBarLinks } from "../../utils/data";
 import SideBarLink from "./SideBarLink";
 import { NavLink } from 'react-router-dom';
 
-const Header = ({children}) => {
+export const Header = ({children}) => {
   const [isHoverSideNav, setHoverSideNav] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
   const [screenSize, setScreenSize] = useState(window.innerWidth)
@@ -92,4 +92,4 @@ const Header = ({children}) => {
   );
 };
 
-export default Header;
+// export default Header;

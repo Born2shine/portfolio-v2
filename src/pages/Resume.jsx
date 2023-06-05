@@ -47,7 +47,7 @@ const Resume = () => {
             </aside>
             <aside className="md:mt-5">
               { loading &&
-                [3,4,5].map((d, idx) => (
+                Array.from({length: 3}, (_, i) => i + 1).map((d, idx) => (
                   <div key={idx} className="mb-4">
                     <Skeleton animation="pulse" variant="text" width={210} height={10} />
                     <Skeleton animation="pulse" variant="text" width={210} height={30} />
@@ -85,7 +85,7 @@ const Resume = () => {
             </aside>
             <aside className="border-l-2 pl-7 md:mt-3 md:w-[95%]">
             { loading &&
-                [3,4,5].map((d, idx) => (
+                Array.from({length: 3}, (_, i) => i + 1).map((d, idx) => (
                   <div key={idx} className="mb-4">
                     <Skeleton animation="pulse" variant="text" width={210} height={10} />
                     <Skeleton animation="pulse" variant="text" width={210} height={30} />
@@ -125,7 +125,7 @@ const Resume = () => {
             <aside className="md:mt-3 md:w-[80%]">
               <div className="grid grid-cols-4 gap-y-4 md:flex md:gap-y-0 md:gap-x-3 lg:gap-x-7">
                 { loading &&
-                  [1,2,3,4,5,6,7,8].map((d, idx) => (
+                  Array.from({length: 8}, (_, i) => i + 1).map((d, idx) => (
                     <div key={idx} className="mb-4">
                       <Skeleton animation="pulse" variant="circular" width={50} height={50} />
                     </div>

@@ -13,8 +13,6 @@ const SinglePortfolio = () => {
   const { works, loading } = useGlobalContext();
   const { id } = useParams();
 
-  console.log(works);
-
   useEffect(() => {
     if (id) {
       const filteredPortfolio = works.filter((f) => f.slug === id)[0];
