@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { db } from "../config/firebase";
 
 const AppContext = createContext() 

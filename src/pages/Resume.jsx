@@ -1,7 +1,7 @@
 import { Skeleton, Zoom } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 import { motion } from 'framer-motion';
-import React, { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   ContentContainer,
   Header,
@@ -10,10 +10,15 @@ import {
   SingleWorkExperience,
 } from "../components";
 import { useGlobalContext } from "../provider/context";
+import { sortWorkExperienceByDuration } from "../utils/sortWorkExperienceByDuration";
 
 const Resume = () => {
   const [activeLink, setActiveLink] = useState("Resume");
-  const { loading, workExperience, education_info, tech_stacks } = useGlobalContext()
+  const { loading, workExperience, education_info } = useGlobalContext();
+  const sortedWorkExperience = useMemo(
+    () => sortWorkExperienceByDuration(workExperience),
+    [workExperience]
+  );
 
   return (
     <div className="">
@@ -58,10 +63,10 @@ const Resume = () => {
                   </div>
                 ))
               }
-              {workExperience.map(
-                ({ title, duration, company, tasks }, idx) => (
+              {sortedWorkExperience.map(
+                ({ id, title, duration, company, tasks }, idx) => (
                   <SingleWorkExperience
-                    key={idx}
+                    key={id ?? idx}
                     title={title}
                     duration={duration}
                     company={company}
@@ -124,22 +129,23 @@ const Resume = () => {
             </aside>
             <aside className="md:mt-3 md:w-[80%]">
               <div className="grid grid-cols-4 gap-y-4 md:flex md:gap-y-0 md:gap-x-3 lg:gap-x-7">
-                { loading &&
-                  Array.from({length: 8}, (_, i) => i + 1).map((d, idx) => (
+                { loading ?
+                  Array.from({length: resumeTechStacks.length}, (_, i) => i + 1).map((d, idx) => (
                     <div key={idx} className="mb-4">
                       <Skeleton animation="pulse" variant="circular" width={50} height={50} />
                     </div>
-                  ))
+                  )) : <> 
+                  {resumeTechStacks.map(({ name, icon }) => (
+                      <Tooltip  key={name} title={name} arrow disableInteractive TransitionComponent={Zoom}>
+                          <img
+                            className="w-10 h-10 object-contain cursor-pointer"
+                            src={icon}
+                            alt={name}
+                          />
+                      </Tooltip>
+                  ))}   
+                  </>
                 }
-                {tech_stacks.map(({ name, imgLink }, idx) => (
-                    <Tooltip  key={idx} title={name} arrow disableInteractive TransitionComponent={Zoom}>
-                        <img
-                          className="w-10 h-10 object-contain cursor-pointer"
-                          src={imgLink}
-                          alt={name}
-                        />
-                    </Tooltip>
-                ))}
               </div>
             </aside>
           </article>
@@ -148,5 +154,22 @@ const Resume = () => {
     </div>
   );
 };
+
+const DEVICON =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
+
+const resumeTechStacks = [
+  { name: "Typescript", icon: `${DEVICON}/typescript/typescript-original.svg` },
+  { name: "Javascript", icon: `${DEVICON}/javascript/javascript-original.svg` },
+  { name: "SASS", icon: `${DEVICON}/sass/sass-original.svg` },
+  { name: "Git", icon: `${DEVICON}/git/git-original.svg` },
+  { name: "Bootstrap", icon: `${DEVICON}/bootstrap/bootstrap-original.svg` },
+  { name: "HTML", icon: `${DEVICON}/html5/html5-original.svg` },
+  { name: "CSS", icon: `${DEVICON}/css3/css3-original.svg` },
+  { name: "Tailwind", icon: `${DEVICON}/tailwindcss/tailwindcss-original.svg` },
+  { name: "Figma", icon: `${DEVICON}/figma/figma-original.svg` },
+  { name: "React", icon: `${DEVICON}/react/react-original.svg` },
+  { name: "Nextjs", icon: `${DEVICON}/nextjs/nextjs-original.svg` },
+];
 
 export default Resume;

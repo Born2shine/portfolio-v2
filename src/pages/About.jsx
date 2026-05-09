@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import { Header, NavButtonLinks } from '../components'
-import * as ICONS from "../assets/icons"
-import * as IMAGES from "../assets"
-import { NavLink } from 'react-router-dom';
-import { AboutMe } from '../utils/data';
-import { SingleSkill, ContentContainer } from '../components';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import * as IMAGES from "../assets";
+import * as ICONS from "../assets/icons";
+import { ContentContainer, Header, NavButtonLinks, SingleSkill } from '../components';
+import { AboutMe } from '../utils/data';
 
 const About = () => {
   const [activeLink, setActiveLink] = useState("Home");
@@ -38,7 +37,7 @@ const About = () => {
               <ul className='mt-2 ml-3 flex flex-col gap-3'>
                 {
                   AboutMe.map(({id, text}, idx) => (
-                    <li key={id} className='flex items-baselin gap-2'> <span className='text-isPrimary block pt-1 text-lg'><ICONS.BsPersonCheck/></span> <span className='text-isSecondary'>{text} {idx + 1 === AboutMe.length && <NavLink to="https://www.dowkaa.com/" target='_blank' className='text-isSecondary'> <span className='text-isPrimary'>Dowkaa intelligent solutions</span>  </NavLink>} </span></li>
+                    <li key={id} className='flex items-baselin gap-2'> <span className='text-isPrimary block pt-1 text-lg'><ICONS.BsPersonCheck/></span> <span className='text-isSecondary'>{text} {idx + 1 === AboutMe.length && <NavLink to="https://zojatech.com/" target='_blank' className='text-isSecondary'> <span className='text-isPrimary'>Zojatech</span>  </NavLink>} </span></li>
                   ))
                 }
               </ul>
@@ -66,7 +65,7 @@ const About = () => {
               </div>
             </motion.div>
             <p className='mt-8 my-6 lg:w-[80%]'>
-            Welcome to my creative corner! Here, you'll find a showcase of my frontend development journey. I hope you enjoy the ride!
+            Welcome to my creative corner! Here, you&apos;ll find a showcase of my frontend development journey. I hope you enjoy the ride!
             </p>
               {/* <p>Welcome to my creative corner! Here, you'll find a showcase of my frontend development journey. I hope you enjoy the ride!</p> */}
           </div>
