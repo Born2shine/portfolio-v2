@@ -4,16 +4,12 @@ import { NavLink } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import { Header } from "../components";
 import NavButtonLinks from "../components/navs/NavButtonLinks";
-import { SocialLinkIcons, SocialLinks } from "./../utils/data";
-import { db } from "../config/firebase";
-import { useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { useGlobalContext } from "../provider/context";
+import { SocialLinks } from "./../utils/data";
 
 const Home = () => {
   const [activeLink, setActiveLink] = useState("Home");
 
-  const { socialLinks } = useGlobalContext()
+  // const { socialLinks } = useGlobalContext()
 
   return (
     <>

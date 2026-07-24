@@ -40,10 +40,10 @@ const Portfolio = () => {
                 ))
               }
             {works.map(({name, img_url, slug, site_url}, idx) => (
-              <NavLink key={idx} to={`/portfolio/${slug}`} className="cursor-pointer relative group">
+              <NavLink key={idx} to={`/portfolio/${slug}`} className="cursor-pointer relative group border-4 rounded-lg overflow-hidden transition-all duration-700">
                 <img
                   loading="lazy"
-                  className="inline-block w-full object-cover shadow-lg rounded-sm lg:h-[280px]"
+                  className="inline-block w-full object-cover shadow-lg rounded-sm lg:h-[320px]"
                   src={img_url}
                   alt="Design Sprint Master"
                 />
