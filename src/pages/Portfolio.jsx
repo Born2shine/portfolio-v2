@@ -1,12 +1,10 @@
+import { Skeleton } from "@mui/material";
+import { motion } from 'framer-motion';
 import { useState } from "react";
-import { ContentContainer, Header, NavButtonLinks } from "../components";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
-import { MyPortfolio } from "../utils/data";
-import { motion } from 'framer-motion';
+import { ContentContainer, Header, NavButtonLinks } from "../components";
 import { useGlobalContext } from "../provider/context";
-import { Skeleton } from "@mui/material";
-import { Blurhash } from "react-blurhash";
 
 const Portfolio = () => {
   const [activeLink, setActiveLink] = useState("Portfolio");
